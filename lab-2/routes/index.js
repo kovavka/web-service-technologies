@@ -9,8 +9,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function (req, res) {
+  console.log(post(req.body));
+  res.send('POST request to the homepage');
+});
+
+router.put('/', function (req, res) {
   console.log(req.body);
-  console.log(run());
+  console.log(put());
   res.send('POST request to the homepage');
 });
 

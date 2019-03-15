@@ -2,7 +2,15 @@ class Cat {
     constructor() {
         this.id = null;
         this.name = null;
-        this.age = 0;
+
+        this.year = 0;
+    }
+
+    get age() {
+        if (!this.year)
+            return 0;
+
+        return new Date().getFullYear() - this.year;
     }
 }
 
