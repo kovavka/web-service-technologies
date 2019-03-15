@@ -8,8 +8,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/', function (req, res) {
-  console.log(post(req.body));
+router.post('/', async function (req, res) {
+  console.log(await post(req.body));
   res.send('POST request to the homepage');
 });
 

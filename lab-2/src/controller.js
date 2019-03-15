@@ -4,21 +4,15 @@ var conString = "postgres://postgres:root@localhost:5432/test";
 
 post = async function (body) {
 
-    var cat = body;
-    console.log(cat)
+    var cat = new Cat(body);
 
     var client = new pg.Client(conString);
-
     await client.connect();
 
-    var result = await client.query("SELECT Count(*) FROM cats");
-
-    console.log(result.rows);
-
+    await client.query(`insert into cats(name, year) values ('${cat.name}', '${cat.year}')`);
     await client.end();
 
-    cat.year = 2017;
-    return cat;
+    return cat.id;
 }
 
 put = async function () {
