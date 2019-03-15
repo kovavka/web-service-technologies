@@ -9,14 +9,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', async function (req, res) {
-  console.log(await post(req.body));
-  res.send('POST request to the homepage');
+  var id = await post(req.body);
+  console.log(id);
+  res.send('POST request, id=' + id);
 });
 
-router.put('/', function (req, res) {
-  console.log(req.body);
-  console.log(put());
-  res.send('POST request to the homepage');
+router.put('/', async function (req, res) {
+  var id = await put(req.body);
+  console.log(id);
+  res.send('PUT request, id=' + id);
 });
 
 module.exports = router;
